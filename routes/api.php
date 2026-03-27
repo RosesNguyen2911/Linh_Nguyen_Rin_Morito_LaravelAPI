@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+// ::class prints the FQCN, which is App\Http\Controllers\BookController
+Route::get('/movies', [MovieController::class, 'index']);
+
+Route::get('/Movies/{movie}', [MoiveController::class, 'show']);
+
+// INDEX: list resources :check:
+// SHOW: single resource :check:
+// STORE: create a new resource
+// UPDATE: updating a resource
+// DESTROY: deleting / destroying a resource
+
+Route::post('/movies', [MovieController::class, 'store']);
+
+// PUT = the ENTIRE object must be provided, meaning any missing fields are updated to null
+// PATCH = change whatever fields are provided, and leave the rest alone!
+
+Route::patch('/movies/{movie}', [MovieController::class, 'update']);
+
+// DELETE
+Route::delete('/movies/{movie}', [MovieController::class, 'destroy']);
