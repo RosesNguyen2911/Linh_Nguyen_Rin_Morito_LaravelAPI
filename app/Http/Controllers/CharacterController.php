@@ -30,8 +30,9 @@ class CharacterController extends Controller
         }
 
         if (!empty($house)) {
-            $charactersQuery->where('house', 'LIKE', '%' . $house . '%');
+            $charactersQuery->where('house', '=', $house);
         }
+
 
         if ($movieId !== null) {
             $charactersQuery->where('movie_id', '=', $movieId);
@@ -41,5 +42,17 @@ class CharacterController extends Controller
 
         return $characters;
     }
+
+    /**
+     * Show a specific character
+     *
+     * @param Character $character
+     * @return Character
+     */
+    public function show(Character $character)
+    {
+        return $character;
+    }
+
 
 }
