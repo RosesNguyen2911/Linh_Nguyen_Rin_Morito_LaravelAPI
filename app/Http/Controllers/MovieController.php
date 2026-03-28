@@ -121,5 +121,16 @@ class MovieController extends Controller
 
         return $movie;
     }
+    
+
+    /**
+     * Remove the specified movie
+     *
+     * @param Movie $movie
+     */
+    public function destroy(Movie $movie)
+    {
+        $movie->delete();
+    }
 }
 

@@ -40,3 +40,9 @@ Route::post('/movies', [MovieController::class, 'store']);
  *  UPDATE: updating a resource
  */ 
 Route::patch('/movies/{movie}', [MovieController::class, 'update']);
+
+/**
+ * 
+ * DESTROY: deleting / destroying a resource
+ */ 
+Route::delete('/movies/{movie}', [MovieController::class, 'destroy']);
