@@ -34,3 +34,9 @@ Route::get('/Movies/{movie}', [MoiveController::class, 'show']);
  *  STORE: create a new resource
  */ 
 Route::post('/movies', [MovieController::class, 'store']);
+
+/**
+ * 
+ *  UPDATE: updating a resource
+ */ 
+Route::patch('/movies/{movie}', [MovieController::class, 'update']);

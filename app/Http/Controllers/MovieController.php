@@ -87,5 +87,39 @@ class MovieController extends Controller
 
         return $movie;
     }
+
+
+    /**
+     * Update the specified movie
+     * 
+     * @param Movie $movie
+     * @return Movie
+     */
+    public function update(Request $request, Movie $movie)
+    {
+        if ($request->has('title')) {
+            $movie->title = $request->input('title');
+        }
+
+        if ($request->has('description')) {
+            $movie->description = $request->input('description');
+        }
+
+        if ($request->has('release_year')) {
+            $movie->release_year = $request->input('release_year');
+        }
+
+        if ($request->has('director')) {
+            $movie->director = $request->input('director');
+        }
+
+        if ($request->has('movie_image')) {
+            $movie->movie_image = $request->input('movie_image');
+        }
+
+        $movie->save();
+
+        return $movie;
+    }
 }
 
