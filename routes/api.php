@@ -38,6 +38,7 @@ Route::get('/characters/{character}', [CharacterController::class, 'show']);
  *  STORE: create a new resource
  */ 
 Route::post('/movies', [MovieController::class, 'store']);
+Route::post('/characters', [CharacterController::class, 'store']);
 
 /**
  * 

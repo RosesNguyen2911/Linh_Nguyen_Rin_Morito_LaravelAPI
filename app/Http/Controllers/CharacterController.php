@@ -79,5 +79,36 @@ class CharacterController extends Controller
     }
 
 
+    /**
+     * Update the specified character
+     *
+     * @param Character $character
+     * @return Character
+     */
+    public function update(Request $request, Character $character)
+    {
+        if ($request->has('name')) {
+            $character->name = $request->input('name');
+        }
+
+        if ($request->has('house')) {
+            $character->house = $request->input('house');
+        }
+
+        if ($request->has('movie_id')) {
+            $character->movie_id = $request->input('movie_id');
+        }
+
+        if ($request->has('character_image')) {
+            $character->character_image = $request->input('character_image');
+        }
+
+        $character->save();
+
+        return $character;
+    }
+
+
+
 
 }
