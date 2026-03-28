@@ -52,3 +52,4 @@ Route::patch('/characters/{character}', [CharacterController::class, 'update']);
  * DESTROY: deleting / destroying a resource
  */ 
 Route::delete('/movies/{movie}', [MovieController::class, 'destroy']);
+Route::delete('/characters/{character}', [CharacterController::class, 'destroy']);

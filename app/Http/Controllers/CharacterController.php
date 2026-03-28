@@ -109,6 +109,18 @@ class CharacterController extends Controller
     }
 
 
+    /**
+     * Remove the specified character
+     *
+     * @param Character $character
+     */
+    public function destroy(Character $character)
+    {
+        $character->delete();
+    }
+
+
+
 
 
 }
