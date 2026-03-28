@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\CharacterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
  * INDEX: list resources :check:
  */
 Route::get('/movies', [MovieController::class, 'index']);
+Route::get('/characters', [CharacterController::class, 'index']);
+
 
 
 /**
