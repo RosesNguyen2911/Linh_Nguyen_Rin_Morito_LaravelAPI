@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Character Model
@@ -30,4 +31,14 @@ class Character extends Model
         'movie_id',
         'character_image',
     ];
+
+    /**
+     * Get the movie that the character belongs to
+     *
+     */
+    public function movie(): BelongsTo
+    {
+        return $this->belongsTo(Movie::class);
+    }
+
 }

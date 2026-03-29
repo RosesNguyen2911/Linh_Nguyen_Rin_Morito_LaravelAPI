@@ -42,6 +42,7 @@ class MovieController extends Controller
             $moviesQuery->where('director', 'LIKE', '%' . $director . '%');
         }
 
+        $moviesQuery->with('characters');
         $movies = $moviesQuery
             ->orderBy('release_year')
             ->get();
@@ -51,15 +52,18 @@ class MovieController extends Controller
 
 
     /**
-     * Show a specific movie
-     * 
-     * @param Movie $movie
+     * This endpoint shows a specific movie
+     *
+     * @param Movie $movie The movie that I want to show
      * @return Movie
      */
     public function show(Movie $movie)
     {
+        // Load related characters for movie detail
+        $movie->load('characters');
         return $movie;
     }
+
 
 
     /**
@@ -121,7 +125,7 @@ class MovieController extends Controller
 
         return $movie;
     }
-    
+
 
     /**
      * Remove the specified movie

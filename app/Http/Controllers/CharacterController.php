@@ -38,6 +38,7 @@ class CharacterController extends Controller
             $charactersQuery->where('movie_id', '=', $movieId);
         }
 
+        $charactersQuery->with('movie');
         $characters = $charactersQuery->get();
 
         return $characters;
