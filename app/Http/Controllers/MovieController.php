@@ -42,6 +42,7 @@ class MovieController extends Controller
             $moviesQuery->where('director', 'LIKE', '%' . $director . '%');
         }
 
+        $moviesQuery->with('characters');
         $movies = $moviesQuery
             ->orderBy('release_year')
             ->get();
