@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\CharacterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +21,16 @@ use Illuminate\Support\Facades\Route;
  * INDEX: list resources :check:
  */
 Route::get('/movies', [MovieController::class, 'index']);
+Route::get('/characters', [CharacterController::class, 'index']);
+
 
 
 /**
  * 
  *  SHOW: single resource :check:
  */ 
-Route::get('/Movies/{movie}', [MoiveController::class, 'show']);
+Route::get('movies/{movie}', [MovieController::class, 'show']);
+Route::get('/characters/{character}', [CharacterController::class, 'show']);
 
 
 /**
@@ -34,15 +38,18 @@ Route::get('/Movies/{movie}', [MoiveController::class, 'show']);
  *  STORE: create a new resource
  */ 
 Route::post('/movies', [MovieController::class, 'store']);
+Route::post('/characters', [CharacterController::class, 'store']);
 
 /**
  * 
  *  UPDATE: updating a resource
  */ 
 Route::patch('/movies/{movie}', [MovieController::class, 'update']);
+Route::patch('/characters/{character}', [CharacterController::class, 'update']);
 
 /**
  * 
  * DESTROY: deleting / destroying a resource
  */ 
 Route::delete('/movies/{movie}', [MovieController::class, 'destroy']);
+Route::delete('/characters/{character}', [CharacterController::class, 'destroy']);
